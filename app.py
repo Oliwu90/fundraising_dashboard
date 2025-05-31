@@ -327,3 +327,49 @@ fig_high = px.histogram(
 
 st.plotly_chart(fig_low, use_container_width=True)
 st.plotly_chart(fig_high, use_container_width=True)
+
+# 6. Analytical Methodology & Tools# 6. Analytical Methodology & Tools# 6. Analytical Methodology & Tools# 6. Analytical Methodology & Tools# 6. Analytical Methodology & Tools# 6. Analytical Methodology & Tools
+st.header("Analytical Methodology & Tools ")
+st.subheader("What tools did you choose and why?")
+st.markdown(
+    """
+    I used Python with Streamlit and Plotly because it lets me clean, analyze, and visualize data 
+    all in one place. I also used Power BI to double-check key trends and totals. If my audiance 
+    is less technical, I would use Power BI for its user-friendly interface and built-in visualizations.
+    """
+)
+
+st.subheader("How did you join and prep the data?")
+st.markdown(
+    """
+    I used **designation selections** joining with **contributions** and then **designation** (matching on `CONTRIBUTION_ID` and `DESIGNATION_ID`).
+    So I have all contributions with their designations and values.
+    """
+)
+
+st.subheader("Did you run into any data issues?")
+st.markdown(
+    """
+    1. unbalanced value in **designation selections** and **contributions**.
+    2. `CREATED_AT` timestamps were not in a consistent format when saving to csv.
+    3. `DESIGNATION_ID` 135738, 137054, 138164 were duplicated in **designation**.
+    """
+)
+
+st.subheader("How did you check data quality?")
+st.markdown(
+    """
+    I make sure total sums is balanced in **designation selections** and **contributions**. I removed not needed contribuitions because the indication of `DELETED_AT`. Then I found still unbalansed contributions, 
+    so I inspect again and found `CONTRIBUTION_ID`: 7304841, 8296503 are the issue causing the unbalanced thus I removed themn to have balanced value.
+    """
+)
+
+st.subheader("If this were a live project with a school, what’s next?")
+st.markdown(
+    """
+    1. I'd build the logic to make sure balanced value, non-duplicated `DESIGNATION_ID` in **designation** , double check booking enties are correct before ship to production tables.
+    2. I'd build in live data source and determine my audience so I can choose between **Streamlit** or **Power BI**.
+    3. I'd be hoping to have more data on donor information, cost for each contribution, and campaign details.
+    4. Build forecast model on amount of contributions and donors from a 3/5 years historical data.
+    """
+)
