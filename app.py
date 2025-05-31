@@ -8,14 +8,14 @@ import plotly.express as px
 
 
 # Set the directory to the current file's location
-dir = str(pathlib.Path(__file__).parent.resolve()) + '\\' 
+# dir = str(pathlib.Path(__file__).parent.resolve()) + '\\' 
 
 st.title("Technical Challenge Fundraising Dashboard")
 
 # Load data
 @st.cache_data
 def load_data():
-    df = pd.read_excel(dir + "combined_df.xlsx")
+    df = pd.read_excel("combined_df.xlsx")
     df.rename(columns={"CREATED_AT": "created_at", 
     "DONATION_TYPE": "donation_type", 
     "CC_TYPE": "cc_type", 
